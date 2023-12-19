@@ -106,4 +106,8 @@
         showNotes();
         closeIcon.click();
       }
+        
+        // Setting maxlength attribute for titleTag and descTag
+titleTag.setAttribute('maxlength', '50'); // Limiting the title to 50 characters
+descTag.setAttribute('maxlength', '200'); // Limiting the description to 200 characters
     });
