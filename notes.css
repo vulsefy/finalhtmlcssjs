@@ -165,7 +165,7 @@ body.dark {
 }
 
 .wrapper2 {
-  margin: 120px auto; /* Center the container */
+  margin: 90px auto; /* Center the container */
   padding: 0 30px; /* Add horizontal padding */
   display: grid;
   gap: 25px; /* Set a uniform gap */
