@@ -5,7 +5,6 @@
     const titleTag = popupBox.querySelector("input");
     const descTag = popupBox.querySelector("textarea");
     const addBtn = popupBox.querySelector("button");
-    const wrapper2 = document.querySelector(".wrapper2");
     const bodyTag = document.querySelector("body");
 
     const months = ["January", "February", "March", "April", "May", "June", "July",
@@ -14,7 +13,6 @@
     let isUpdate = false, updateId;
 
     addBox.addEventListener("click", () => {
-      wrapper2.classList.add("close");
       popupTitle.innerText = "Add a Note";
       addBtn.innerText = "Add Note";
       popupBox.classList.add("show");
@@ -24,7 +22,6 @@
     });
 
     closeIcon.addEventListener("click", () => {
-      wrapper2.classList.remove("close");
       isUpdate = false;
       titleTag.value = descTag.value = "";
       popupBox.classList.remove("show");
