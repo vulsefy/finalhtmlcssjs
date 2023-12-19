@@ -41,7 +41,7 @@
                             <span>${filterDesc}</span>
                         </div>
                         <div class="bottom-content2">
-                            <span>${note.date}</span>
+                            <div>${note.date}</div>
                             <div class="settings">
                                 <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                                 <ul class="menu2">
