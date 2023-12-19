@@ -14,6 +14,7 @@
     let isUpdate = false, updateId;
 
     addBox.addEventListener("click", () => {
+      wrapper2.classList.add("close");
       popupTitle.innerText = "Add a Note";
       addBtn.innerText = "Add Note";
       popupBox.classList.add("show");
@@ -23,6 +24,7 @@
     });
 
     closeIcon.addEventListener("click", () => {
+      wrapper2.classList.remove("close");
       isUpdate = false;
       titleTag.value = descTag.value = "";
       popupBox.classList.remove("show");
@@ -41,7 +43,7 @@
                             <span>${filterDesc}</span>
                         </div>
                         <div class="bottom-content2">
-                            <div>${note.date}</div>
+                            <span>${note.date}</span>
                             <div class="settings">
                                 <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                                 <ul class="menu2">
@@ -106,8 +108,4 @@
         showNotes();
         closeIcon.click();
       }
-        
-        // Setting maxlength attribute for titleTag and descTag
-titleTag.setAttribute('maxlength', '50'); // Limiting the title to 50 characters
-descTag.setAttribute('maxlength', '200'); // Limiting the description to 200 characters
     });

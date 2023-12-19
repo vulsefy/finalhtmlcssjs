@@ -19,7 +19,7 @@ nav {
 nav .logo {
   display: flex;
   align-items: center;
-  margin: 0 24px;
+  margin: 20 24px;
 }
 .logo .menu-icon {
   color: #333;
@@ -31,7 +31,6 @@ nav .logo {
   color: #333;
   font-size: 22px;
   font-weight: 500;
-  margin-left: 20px;
 }
 nav .sidebar {
   position: fixed;
