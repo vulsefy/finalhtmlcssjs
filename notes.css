@@ -22,17 +22,18 @@ nav .logo {
   margin: 0 24px;
 }
 .logo .menu-icon {
-  color: #333;
+  color: black;
   font-size: 24px;
   margin-right: 14px;
   cursor: pointer;
 }
 .logo .logo-name {
-  color: #333;
+  color: #000;
   font-size: 22px;
   font-weight: 500;
-  margin-left: 20px;
+  margin-left: 10px;
 }
+
 nav .sidebar {
   position: fixed;
   top: 0;
@@ -41,11 +42,27 @@ nav .sidebar {
   width: 260px;
   padding: 20px 0;
   background-color: #fff;
-  box-shadow: 0 5px 1px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s ease;
+  box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.1s ease;
 }
+
+
 nav.open .sidebar {
   left: 0;
+  animation: pulse 0.7s ease;
+}
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 52px 32px 82px 32px blue;
+    transition: all 0.2s ease-out;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .sidebar .sidebar-content {
   display: flex;
@@ -53,6 +70,19 @@ nav.open .sidebar {
   flex-direction: column;
   justify-content: space-between;
   padding: 30px 16px;
+}
+
+.sidebar .menu-icon {
+  position: sticky;
+  margin-top: -3px;
+}
+.sidebar .logosite {
+  position: sticky;
+  margin-top: -6px;
+}
+.sidebar .logo-name {
+  position: sticky;
+  margin-top: -6px;
 }
 .sidebar-content .list {
   list-style: none;
@@ -71,11 +101,11 @@ nav.open .sidebar {
 .nav-link .icon {
   margin-right: 14px;
   font-size: 20px;
-  color: #707070;
+  color: #000;
 }
 .nav-link .link {
   font-size: 16px;
-  color: #707070;
+  color: black;
   font-weight: 400;
 }
 .lists .nav-link:hover .icon,
@@ -90,13 +120,15 @@ nav.open .sidebar {
   width: 200%;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.4s ease;
+  transition: all 0.1s ease;
   background: rgba(0, 0, 0, 0.3);
+  
 }
 nav.open ~ .overlay {
   opacity: 1;
   left: 260px;
   pointer-events: auto;
+  animation: pulse 1s backwards;
 }
 
 .logosite {
@@ -165,8 +197,8 @@ body.dark {
 }
 
 .wrapper2 {
-  margin: 120px auto; /* Center the container */
-  padding: 0 30px; /* Add horizontal padding */
+  margin: 80px auto; /* Center the container */
+  padding: 24px 12px; /* Add horizontal padding */
   display: grid;
   gap: 25px; /* Set a uniform gap */
   grid-template-columns: repeat(auto-fill, minmax(35%, 1fr)); /* Adjust column width */
@@ -221,7 +253,7 @@ body.dark {
 }
 
 .add-box p {
-  color: fff;
+  color: #fff;
   font-weight: 600;
   margin-top: 20px;
 }
@@ -237,8 +269,8 @@ body.dark {
   overflow-y: auto;
 }
 .note p {
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 700;
   word-wrap: break-word;
   margin-bottom: 5px;
 }
@@ -420,7 +452,7 @@ body.dark {
 
 .content2 form .row {
   margin-bottom: 20px;
-  text-align: center;
+  text-align: left;
 }
 
 form :where(input, textarea) {
@@ -428,7 +460,7 @@ form :where(input, textarea) {
   width: 100%;
   outline: none;
   font-size: 17px;
-  text-align: center;
+  text-align: left;
   padding: 0 15px;
   border-radius: 4px;
   border: 1px solid #999;
