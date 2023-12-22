@@ -57,7 +57,7 @@ nav.open .sidebar {
   }
   50% {
     opacity: 1;
-    box-shadow: 52px 32px 82px 32px blue;
+    box-shadow: 0px 1px 32px 32px blue;
     transition: all 0.2s ease-out;
   }
   100% {
@@ -131,6 +131,12 @@ nav.open ~ .overlay {
   animation: pulse 1s backwards;
 }
 
+nav.open .sidebar .menu2 i {
+  display: none;
+  z-index: 0;
+}
+
+
 .logosite {
   width: 40px;
   height: 40px;
@@ -201,7 +207,7 @@ body.dark {
   padding: 24px 12px; /* Add horizontal padding */
   display: grid;
   gap: 25px; /* Set a uniform gap */
-  grid-template-columns: repeat(auto-fill, minmax(35%, 1fr)); /* Adjust column width */
+  grid-template-columns: repeat(auto-fill, minmax(25%, 1fr)); /* Adjust column width */
   user-select: text;
 }
 
@@ -213,6 +219,20 @@ body.dark {
   transition: var(--tran-05);
   padding: 15px 20px 20px;
   background: #fff;
+}
+@keyframes pulse2 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.01);
+    opacity: 1;
+    box-shadow: 0px 0px 22px 1px blue;
+    transition: all 0.2s ease-out;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .add-box {
@@ -240,6 +260,23 @@ body.dark {
   cursor: pointer;
   flex-direction: column;
   justify-content: center;
+  animation: colorShift 3s infinite linear;
+  border: 2px solid transparent;
+}
+
+@keyframes colorShift {
+  0% {
+    /* Start with a smaller shadow */
+    box-shadow: 0 0 0 0 blue;
+  }
+  50% {
+    /* Gradually increase the shadow size */
+    box-shadow: 0 0 20px 10px blue;
+  }
+  100% {
+    /* Then decrease it back to a smaller shadow */
+    box-shadow: 0 0 0 0 blue;
+  }
 }
 
 .add-box .icon2 {
@@ -262,6 +299,7 @@ body.dark {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  animation: pulse2 1s ease-in;
 }
 
 .note .details textarea {
@@ -323,10 +361,6 @@ body.dark {
   font-size: 14px;
 }
 
-.bottom-content2 .settings {
-  position: relative;
-}
-
 .bottom-content2 .settings i {
   color: #6d6d6d;
   cursor: pointer;
@@ -335,12 +369,11 @@ body.dark {
 
 .settings .menu2 {
   z-index: 1;
-  bottom: 0;
-  right: 25px;
+  margin-bottom:-90px;
+  margin-right: -75px;
   border: 1px solid black;
   padding: 5px 0;
   background: #fff;
-  position: absolute;
   border-radius: 4px;
   transform: scale(0);
   transform-origin: bottom right;
@@ -350,6 +383,8 @@ body.dark {
 
 .settings.show .menu2 {
   transform: scale(0.9);
+  position: relative;
+  left: -61px;
 }
 
 .settings .menu2 li {
@@ -525,7 +560,6 @@ form button {
     grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); /* Adjust column width */
   }
   nav {
-	 text-align: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -561,6 +595,7 @@ form button {
     left: -100%;
     height: 100%;
     width: 100%;
+    position: fixed;
     padding: 20px 0;
     background-color: #fff;
     box-shadow: 0 5px 1px rgba(0, 0, 0, 0.1);
@@ -571,8 +606,7 @@ form button {
     left: 0;
   }
 
-  
-	.sidebar .sidebar-content {
+  .sidebar .sidebar-content {
 	  display: flex;
 	  height: 100%;
 	  flex-direction: column;
@@ -596,18 +630,18 @@ form button {
 	.nav-link .icon {
 	  margin-right: 14px;
 	  font-size: 20px;
-	  color: #707070;
+	  color: black;
 	}
 	.nav-link .link {
 	  font-size: 16px;
-	  color: #707070;
+	  color: black;
 	  font-weight: 400;
 	}
 	.lists .nav-link:hover .icon,
 	.lists .nav-link:hover .link {
 	  color: #fff;
 	}
-
+  
   .overlay {
     position: fixed;
     top: 0;

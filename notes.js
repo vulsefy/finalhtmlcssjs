@@ -104,5 +104,7 @@
         localStorage.setItem("notes", JSON.stringify(notes));
         showNotes();
         closeIcon.click();
+        
       }
+      
     });
