@@ -43,27 +43,14 @@ nav .sidebar {
   padding: 20px 0;
   background-color: #fff;
   box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.5);
-  transition: all 0.1s ease;
+  transition: all 0.4s ease;
 }
 
 
 nav.open .sidebar {
   left: 0;
-  animation: pulse 0.7s ease;
 }
-@keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-    box-shadow: 0px 1px 32px 32px blue;
-    transition: all 0.2s ease-out;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+
 .sidebar .sidebar-content {
   display: flex;
   height: 100%;
@@ -95,7 +82,23 @@ nav.open .sidebar {
   border-radius: 8px;
   text-decoration: none;
 }
-.lists .nav-link:hover {
+.lists .nav-link:hover,
+.list .nav-link:hover {
+  background-color: #4070f4;
+}
+.sidebar-content .list2 {
+  list-style: none;
+}
+.list2 .nav-link {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  padding: 14px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.lists .nav-link:hover,
+.list2 .nav-link:hover {
   background-color: #4070f4;
 }
 .nav-link .icon {
@@ -109,7 +112,9 @@ nav.open .sidebar {
   font-weight: 400;
 }
 .lists .nav-link:hover .icon,
-.lists .nav-link:hover .link {
+.lists .nav-link:hover .link,
+.list2 .nav-link:hover .link,
+.list2 .nav-link:hover .icon {
   color: #fff;
 }
 .overlay {
@@ -120,7 +125,7 @@ nav.open .sidebar {
   width: 200%;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.1s ease;
+  transition: all 0.4s ease;
   background: rgba(0, 0, 0, 0.3);
   
 }
@@ -128,7 +133,6 @@ nav.open ~ .overlay {
   opacity: 1;
   left: 260px;
   pointer-events: auto;
-  animation: pulse 1s backwards;
 }
 
 nav.open .sidebar .menu2 i {
@@ -184,7 +188,7 @@ nav.open .sidebar .menu2 i {
 
 body {
   overflow: auto;
-  background: var(--body-color);
+  background: white;
   transition: var(--tran-04);
 }
 
@@ -197,13 +201,95 @@ body.dark {
   --text-color: #ccc;
 }
 
+.dark-mode {
+  background-color: black;
+}
+
+#switch-mode {
+  text-align: left;
+  left: -10%;
+  margin: 32px;
+}
+
+.switch-mode {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 35px;
+  border-radius: 70px;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 3px;
+}
+
+.toggle-switch {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #fff;
+  animation: slideAnimation 2s ease forwards; /* Use animation instead of transition */
+}
+
+@keyframes slideAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(365%);
+  }
+}
+
+.switch-mode:before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: transform 0.4s ease, background-color 0.3s ease; /* Add transition for background-color and left */
+}
+
+.toggle-switch:checked + .slider {
+  transform: translateX(36px);
+}
+
+.dark-mode .switch-mode {
+  background-color: #03a9f4;
+}
+
+.dark-mode .slider {
+  left: auto;
+  right: 0;
+  transform: translateX(36px);
+  background-color: #03a9f4;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Add transition for background-color */
+}
+
+.dark-mode .switch-mode:before {
+  background-color: white;
+  left: auto;
+  width: 25px;
+  transition: left 0.4s ease;
+  height: 25px;
+  right: 3px;
+}
 ::selection {
   color: #fff;
   background: #618cf8;
 }
 
 .wrapper2 {
-  margin: 80px auto; /* Center the container */
+  margin: 60px auto; /* Center the container */
   padding: 24px 12px; /* Add horizontal padding */
   display: grid;
   gap: 25px; /* Set a uniform gap */
@@ -218,22 +304,9 @@ body.dark {
   border-radius: 5px;
   transition: var(--tran-05);
   padding: 15px 20px 20px;
-  background: #fff;
+  background: rgb(212, 212, 212);
 }
-@keyframes pulse2 {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.01);
-    opacity: 1;
-    box-shadow: 0px 0px 22px 1px blue;
-    transition: all 0.2s ease-out;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+
 
 .add-box {
   border: 3px solid black;
@@ -260,23 +333,7 @@ body.dark {
   cursor: pointer;
   flex-direction: column;
   justify-content: center;
-  animation: colorShift 3s infinite linear;
   border: 2px solid transparent;
-}
-
-@keyframes colorShift {
-  0% {
-    /* Start with a smaller shadow */
-    box-shadow: 0 0 0 0 blue;
-  }
-  50% {
-    /* Gradually increase the shadow size */
-    box-shadow: 0 0 20px 10px blue;
-  }
-  100% {
-    /* Then decrease it back to a smaller shadow */
-    box-shadow: 0 0 0 0 blue;
-  }
 }
 
 .add-box .icon2 {
@@ -299,7 +356,6 @@ body.dark {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  animation: pulse2 1s ease-in;
 }
 
 .note .details textarea {
@@ -326,7 +382,7 @@ body.dark {
 }
 
 .bottom-content2 span {
-  color: #6d6d6d;
+  color: black;
   font-size: 14px;
 }
 
@@ -362,7 +418,7 @@ body.dark {
 }
 
 .bottom-content2 .settings i {
-  color: #6d6d6d;
+  color: black;
   cursor: pointer;
   font-size: 15px;
 }
@@ -458,7 +514,7 @@ body.dark {
 }
 
 .popup .content2 {
-  border-radius: 15px;
+  border-radius: 0;
   background: #fff;
   width: calc(100% - 15px);
 }
@@ -467,7 +523,6 @@ body.dark {
   text-align: center;
   padding: 25px 25px 2px; /* Adjust padding values to increase height */
   border-bottom: 1px solid #ccc;
-  border: 3px solid black;
 }
 
 .content2 p {
@@ -599,7 +654,7 @@ form button {
     padding: 20px 0;
     background-color: #fff;
     box-shadow: 0 5px 1px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease;
+    transition: all 0.7s ease;
   }
 
   nav.open .sidebar {
@@ -650,7 +705,7 @@ form button {
     width: 0;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.4s ease;
+    transition: all 0.7s ease;
     background: rgba(0, 0, 0, 0.3);
   }
 
@@ -660,3 +715,20 @@ form button {
     pointer-events: auto;
   }
 }
+
+    /* CSS for the popup window */
+    .css-window {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+      z-index: 9999;
+      max-width: 350px; /* Set your desired maximum width */
+      width: 90%; /* Set a percentage or specific width for flexibility */
+      text-align: left; /* Helps maintain readability */
+      /* You can add additional styles or adjustments as needed */
+    }

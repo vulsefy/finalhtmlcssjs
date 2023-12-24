@@ -35,8 +35,8 @@
               </a>
               </li>
           </ul>
-          <div class="bottom-cotent">
-            <li class="list">
+          <div class="bottom-content">
+            <li class="list2" id="list2">
               <a href="#" class="nav-link">
                 <i class="bx bx-cog icon"></i>
                 <span class="link">Settings</span>
@@ -79,6 +79,64 @@
       </div>
     </div>
   </section>
+
+  <!-- The CSS-styled window for Settings -->
+  <div class="css-window" id="settingsWindow">
+    <!-- Content for Settings CSS window -->
+    <h2>Settings</h2>
+    <br>
+    <h4>Dark Mode</h4>
+    <button id="switch-mode" class="switch-mode"></button>
+    <!-- Your settings content here -->
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const settingsLink1 = document.querySelector(".list2 .nav-link");
+      const settingsLink2 = document.querySelector(".list2 .link");
+      const settingsWindow = document.getElementById("settingsWindow");
+  
+      settingsLink1.addEventListener("click", toggleSettingsWindow);
+      settingsLink2.addEventListener("click", toggleSettingsWindow);
+  
+      function toggleSettingsWindow(event) {
+        event.preventDefault();
+        settingsWindow.style.display = "block";
+  
+        // Close the window when clicked outside its content
+        document.addEventListener("click", closeWindowOutside);
+      }
+  
+      function closeWindowOutside(event) {
+        if (!settingsLink1.contains(event.target) && !settingsLink2.contains(event.target) && !settingsWindow.contains(event.target)) {
+          settingsWindow.style.display = "none";
+          document.removeEventListener("click", closeWindowOutside);
+        }
+      }
+    });
+  </script>
+
+<script>
+  // Your existing JavaScript code here
+  // Add the dark mode/light mode toggle functionality here
+  // ...
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // ... (Your existing code)
+
+    const switchModeButton = document.querySelector(".switch-mode");
+
+    switchModeButton.addEventListener("click", function (event) {
+      event.stopPropagation(); // Prevents the click from closing the window
+      toggleMode();
+    });
+
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      // Update any other elements you want to change with dark mode
+    }
+  });
+</script>
   <script src="scriptnavbar.js"></script>
   <script src="notes.js"></script>
   <script src="script.js"></script>

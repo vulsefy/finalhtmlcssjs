@@ -6,6 +6,7 @@
     const descTag = popupBox.querySelector("textarea");
     const addBtn = popupBox.querySelector("button");
     const bodyTag = document.querySelector("body");
+    
 
     const months = ["January", "February", "March", "April", "May", "June", "July",
                     "August", "September", "October", "November", "December"];
@@ -107,4 +108,14 @@
         
       }
       
+    });
+    document.addEventListener('click', function (e) {
+      const content = document.querySelector('.content2');
+      const isClickInsideContent = content.contains(e.target);
+      const isClickOnAddBox = e.target.classList.contains('add-box');
+      
+      if (!isClickInsideContent && !isClickOnAddBox) {
+        popupBox.classList.remove('show');
+        document.body.style.overflow = 'auto';
+      }
     });
