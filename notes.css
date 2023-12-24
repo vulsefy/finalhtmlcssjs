@@ -429,7 +429,7 @@ body.dark {
   margin-right: -75px;
   border: 1px solid black;
   padding: 5px 0;
-  background: #fff;
+  background: rgb(212, 212, 212);
   border-radius: 4px;
   transform: scale(0);
   transform-origin: bottom right;
@@ -537,7 +537,7 @@ body.dark {
 }
 
 .content2 form {
-  margin: 15px 25px 35px;
+  margin: 15px 55px 35px;
 }
 
 .content2 form .row {
@@ -585,7 +585,7 @@ form .row textarea {
 
 .content2 form .row input[type="text"],
 .content2 form .row textarea {
-  width: calc(auto - auto); /* Adjust the width to fit within the popup box */
+  width: calc(400px - 50%); /* Adjust the width to fit within the popup box */
   outline: none;
   font-size: 17px;
   padding: 10px 15px; /* Adjust padding for better readability */
@@ -603,7 +603,7 @@ form button {
   cursor: pointer;
   font-size: 17px;
   border-radius: 4px;
-  background: #6a93f8;
+  background: blue;
 }
 
 @media (max-width: 768px) {
